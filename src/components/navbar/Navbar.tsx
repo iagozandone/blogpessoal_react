@@ -1,46 +1,38 @@
 import { useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../../contexts/AuthContext"
- 
- 
+
 function Navbar() {
- 
-  const navigate = useNavigate()
- 
-  const { handleLogout } = useContext(AuthContext)
- 
-  function logout(){
-    handleLogout()
-    alert("O usuário foi desconectado com sucesso!")
-    navigate("/")
-  }
- 
-  return (
-    <div className="
-        flex
-        justify-center
-        w-full
-        p-4
-        text-gray-600
-        bg-gray-100">
-        <div className="
-            container
-            flex
-            justify-between
-            text-lg">
-            <Link to="/home" className="text-2xl fonte-bold"> Blog Pessoal </Link>
-                <div className="
-                    flex
-                    gap-4">
-                    Postagem
-                    <Link to="/cadastro" className="text-2xl fonte-bold"> Cadastro </Link>
-                    <Link to="/login" onClick={logout} className="text-2xl fonte-bold hover:underline">
-                     Sair
-                    </Link>
+
+    const navigate = useNavigate()
+
+    const { handleLogout } = useContext(AuthContext)
+
+    function logout(){
+        handleLogout()
+        alert("O usuário foi desconectado com sucesso!")
+        navigate("/")
+    }
+
+    return (
+        <>
+            <div className='w-full flex justify-center py-4
+            			   bg-indigo-900 text-white'>
+            
+                <div className="container flex justify-between text-lg mx-8">
+                    <Link to="/home" className="text-2xl font-bold">Blog Pessoal</Link>
+
+                    <div className='flex gap-4'>
+                        Postagens
+                        <Link to='/temas' className='hover:underline'>Temas</Link>
+                        <Link to='/cadastrartema' className='hover:underline'>Cadastrar tema</Link>
+                        Perfil
+                        <Link to="" onClick={logout} className="hover:underline">Sair</Link>
+                    </div>
                 </div>
-        </div>
-    </div>
-  )
+            </div>
+        </>
+    )
 }
- 
+
 export default Navbar
