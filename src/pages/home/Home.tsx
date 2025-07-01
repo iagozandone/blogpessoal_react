@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function Home() {
     return (
@@ -16,11 +17,12 @@ function Home() {
                             <div className='rounded text-white 
                                             border-white border-solid border-2 py-2 px-4'
                                 >
-                                Nova Postagem
-                            </div>
-                        </div>
+                        <Link to='/cadastrarpostagem' className='hover:underline'>
+                        Nova Postagem
+                    </Link>                            
                     </div>
-
+                        </div>
+                            </div>
                     <div className="flex justify-center ">
                         <img
                             src="https://i.imgur.com/fyfri1v.png"
